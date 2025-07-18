@@ -21,20 +21,11 @@ This was scope creep on our side, we do NOT need content submitted on this topic
 
 ## Programming
 
-- [x] "Opening Screen" \< corbin \>
-- [x] Login \< corbin \>
-- [ ] Contact Us
-- [ ] Forgot Password
+- [x] "Opening Screen" 
+- [x] Login 
 - [ ] Dashboard
-- [ ] Schedule
-- [ ] Profile Dashboard
-  - We might deprecate this one as well
-- [ ] because it's not a customer app. 
-- [ ] Orders Screen
+- [ ] Make Order Screen
 - [ ] Add Customer
-- [ ] Add Worker
-  - Need to ask the professor whether our sales rep management is supposed to be in-app
-- [ ] Inventory Screen
 
 ## Documents
 
