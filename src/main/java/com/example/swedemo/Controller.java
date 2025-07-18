@@ -6,15 +6,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 public class Controller {
 
     private Stage stage;
     private Scene scene;
     private Parent parent;
+    private HashMap<String, User> userList = Application.userList;
+
 
     private void switchScene(String fxmlFile, ActionEvent event) {
         try {
@@ -28,12 +32,40 @@ public class Controller {
         }
     }
 
+    // STARTUP SCREEN
     @FXML
     protected void onLoginButton(ActionEvent event) {
         switchScene("Login.fxml", event);
     }
-
     @FXML
     protected void onContactUsButton() {
+        // TODO: Contact Us Screen
     }
+
+    // LOGIN SCREEN
+    @FXML
+    TextField emailField;
+    @FXML
+    TextField passwordField;
+    @FXML
+    protected void onConfirmLoginButton() {
+        String email = emailField.getText();
+        String password = passwordField.getText();
+        User user = userList.get(email);
+        if (user == null) {
+            System.out.println("no existing user"); // TODO: text appear
+            return;
+        }
+        int code = user.login(email, password);
+        switch (code){
+            case 0:
+                System.out.println("Switch scren"); // TODO: switch to other scene
+                break;
+            case 2:
+                System.out.println("Incorrect Password"); // TODO: text appear
+                break;
+        }
+    }
+
+
 }
