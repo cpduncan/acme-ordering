@@ -42,7 +42,7 @@ public class Controller {
         // TODO: Contact Us Screen
     }
 
-    // LOGIN SCREEN
+    // LOGIN SCREEN // this is a text change
     @FXML
     TextField emailField;
     @FXML
