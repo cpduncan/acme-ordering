@@ -5,6 +5,7 @@ module com.example.swedemo {
     requires json.simple;
 
 
+
     opens com.example.swedemo to javafx.fxml;
     exports com.example.swedemo;
 }
