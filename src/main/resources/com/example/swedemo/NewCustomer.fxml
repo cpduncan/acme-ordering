@@ -137,7 +137,7 @@
                   </Label>
                </children>
             </HBox>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction = "#onNewCusBackButton" text="Back" GridPane.rowIndex="1" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction = "#onNewCusBackButton" text="Back" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
             </children>
         </GridPane>
     </children>
