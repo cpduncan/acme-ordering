@@ -15,14 +15,15 @@ public class User {
         this.userID = userID;
         this.email = email;
         this.role = "sales-rep"; // default
-
-        try { // password hashing using SHA-256
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] passwordHash = digest.digest(password.getBytes(StandardCharsets.UTF_8));
-            encodedPasswordHash = Base64.getEncoder().encodeToString(passwordHash);
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
+//
+//        try { // password hashing using SHA-256
+//            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+//            byte[] passwordHash = digest.digest(password.getBytes(StandardCharsets.UTF_8));
+//            encodedPasswordHash = Base64.getEncoder().encodeToString(passwordHash);
+        encodedPasswordHash = password;
+//        } catch (NoSuchAlgorithmException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     public int login(String email, String password) {
