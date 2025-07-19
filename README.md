@@ -25,7 +25,8 @@ This was scope creep on our side, we do NOT need content submitted on this topic
 - [x] Login 
 - [ ] Dashboard
 - [ ] Make Order Screen
-- [ ] Add Customer
+- [x] Add Customer
+- [ ] Overarching order funcitonality
 
 ## Documents
 

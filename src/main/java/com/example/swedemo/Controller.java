@@ -59,7 +59,7 @@ public class Controller {
         int code = user.login(email, password);
         switch (code){
             case 0:
-                System.out.println("Switch scren"); // TODO: switch to other scene
+                System.out.println("Switch screen"); // TODO: switch to other scene
                 break;
             case 2:
                 System.out.println("Incorrect Password"); // TODO: text appear
