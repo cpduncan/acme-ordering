@@ -42,5 +42,3 @@ This was scope creep on our side, we do NOT need content submitted on this topic
 - [ ] Group Project Presentation and Final Docs
   - Due Tuesday
   - Individual Peer Evals
-
-> this is a test pull request from corbin's fork of main
