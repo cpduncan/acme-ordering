@@ -1,0 +1,16 @@
+{"database":[
+  {"employees":[
+    {"email":"jsmith57@acme.com", "passwordHash":"XohImNooBHFR0OVvjcYpJ3NgPQ1qq73WKhHvch0VQtg=", "firstName":"John", "lastName":"Smithers", "id":"SMITHERSJ_57842"},
+    {"email":"tjeffe15@acme.com", "passwordHash":"XohImNooBHFR0OVvjcYpJ3NgPQ1qq73WKhHvch0VQtg=", "firstName":"Thomas", "lastName":"Jefferies", "id":"JEFFERIEST_1548"},
+    {"email":"ljames82@acme.com", "passwordHash":"XohImNooBHFR0OVvjcYpJ3NgPQ1qq73WKhHvch0VQtg=", "firstName":"Larry", "lastName":"James", "id":"JAMESL_82312345"},
+    {"email":"gmaddu54@acme.com", "passwordHash":"XohImNooBHFR0OVvjcYpJ3NgPQ1qq73WKhHvch0VQtg=", "firstName":"Greg", "lastName":"Maddun", "id":"MADDUNG_5482103"}
+  ]},
+  {"stores":[
+    {"store":"ABC Package Store", "id":"ABCPS_123432109", "adress":"3324 Sandie Plains Rd Marietta GA", "phoneNumber":"558 555 1213", "owner":"Nolen Ryann"},
+    {"store":"BPD Grocery Store", "id":"BPDGS_254786510", "adress":"2960 Shallowfood Rd Marietta GA", "phoneNumber":"585 812 5784", "owner":"James Johnson"},
+    {"store":"The Restaurant", "id":"TREST_985741204", "adress":"3460 Sandie Plains Rd Marietta GA", "phoneNumber":"547 555 1217", "owner":"Jessica Smith"},
+    {"store":"GHI Beverages", "id":"GHIBs_012382109", "adress":"3324 Cobb Parkway Marietta GA", "phoneNumber":"878 555 1214", ",owner":"Nellie Jones"},
+    {"store":"XYZ Groceries", "id":"XYZGS_654786810", "adress":"2860 Deep River Rd Marietta GA", "phoneNumber":"572 812 5674", ",owner":"Spencer Smithers"},
+    {"store":"The Corner Restaurant", "id":"TCRSt_945741304", "adress":"34104 Madison Hwy Marietta GA", "phoneNumber":"567 555 1210", ",owner":"Thomas Gavin"}
+  ]}
+]}
