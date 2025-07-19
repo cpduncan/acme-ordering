@@ -1,6 +1,8 @@
 module com.example.swedemo {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.xml;
+    requires json.simple;
 
 
     opens com.example.swedemo to javafx.fxml;
