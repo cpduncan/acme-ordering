@@ -11,14 +11,6 @@ Intended broad functionality:
 > How does delivery fulfillment fit into the sales rep ordering process? 
 This was scope creep on our side, we do NOT need content submitted on this topic.
 
-TEST TESTING TEST TESTING
-
-> TEST TEST TEST TEST TEST
-
-### CORBIN TEST CONFLICT
-### CORBIN TEST CONFLICT
-### CORBIN TEST CONFLICT
-
 # IMPORTANT INFO
 
 - do NOT clone main to your computer. make a fork and pull request so that we do not have merge conflicts. 
