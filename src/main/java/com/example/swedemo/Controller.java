@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -41,6 +42,16 @@ public class Controller {
     protected void onContactUsButton() {
         // TODO: Contact Us Screen
     }
+    // Back to STARTUP SCREEN
+    @FXML
+    protected void onLogBackButton(ActionEvent event){
+        switchScene("Startup.fxml",event);
+    }
+    // Back to Prev SCREEN
+    @FXML
+    protected void onNewCusBackButton(ActionEvent event){
+        switchScene("Login.fxml",event);
+    }
 
     // LOGIN SCREEN // this is a text change
     @FXML
@@ -48,7 +59,7 @@ public class Controller {
     @FXML
     TextField passwordField;
     @FXML
-    protected void onConfirmLoginButton() {
+    protected void onConfirmLoginButton(ActionEvent event) {
         String email = emailField.getText();
         String password = passwordField.getText();
         User user = userList.get(email);
@@ -59,13 +70,15 @@ public class Controller {
         int code = user.login(email, password);
         switch (code){
             case 0:
-                System.out.println("Switch scren"); // TODO: switch to other scene
+                System.out.println("Switch screen"); // TODO: switch to other scene
+                switchScene("NewCustomer.fxml", event);
                 break;
             case 2:
                 System.out.println("Incorrect Password"); // TODO: text appear
                 break;
         }
     }
+
 
 
 }
