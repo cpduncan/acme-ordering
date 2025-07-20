@@ -43,10 +43,10 @@
                   <Image url="@../../../ACME_DISTRIBUTION_1_-removebg-preview.png" />
                </image>
             </ImageView>
-            <TextField fx:id="emailField" alignment="CENTER" promptText="Email" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
-            <TextField fx:id="passwordField" alignment="CENTER" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+            <TextField fx:id="emailField" alignment="CENTER" onAction="#onConfirmLoginButton" promptText="Email" GridPane.columnIndex="1" GridPane.rowIndex="5" GridPane.valignment="CENTER" />
+            <TextField fx:id="passwordField" alignment="CENTER" onAction="#onConfirmLoginButton" promptText="Password" GridPane.columnIndex="1" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
             <CheckBox mnemonicParsing="false" text="Remember Me" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
-            <Button mnemonicParsing="false" onAction = "#onLogBackButton" alignment="CENTER" contentDisplay="CENTER" text="Back" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onLogBackButton" text="Back" GridPane.columnIndex="1" GridPane.rowIndex="9" />
          </children>
       </GridPane>
    </children>

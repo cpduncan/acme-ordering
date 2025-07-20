@@ -3,9 +3,12 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -53,14 +56,22 @@
                 </ImageView>
                 <VBox alignment="CENTER" layoutX="277.0" layoutY="150.0" prefHeight="200.0" prefWidth="100.0" spacing="12.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <children>
-                  <VBox alignment="CENTER" prefHeight="43.0" prefWidth="126.0">
+                  <VBox alignment="CENTER" prefHeight="52.0" prefWidth="210.0">
                      <children>
-                        <Label text="Brand">
+                        <Label text="Select Product">
                            <font>
                               <Font size="11.0" />
                            </font>
                         </Label>
-                        <ChoiceBox prefHeight="26.0" prefWidth="103.0" />
+                        <TextField fx:id="productField" onKeyPressed="#onProductFieldKeypress" onMouseClicked="#onProductFieldFocus">
+                           <contextMenu>
+                              <ContextMenu fx:id="productContextMenu">
+                                <items>
+                                  <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                                </items>
+                              </ContextMenu>
+                           </contextMenu>
+                        </TextField>
                      </children>
                   </VBox>
                </children>
@@ -74,7 +85,7 @@
                      <children>
                             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                            <children>
-                              <Button mnemonicParsing="false" prefHeight="5.0" prefWidth="116.0" text="Add Product" />
+                              <Button mnemonicParsing="false" onAction="#onAddProductButton" prefHeight="5.0" prefWidth="116.0" text="Add Product" />
                            </children>
                             </VBox>
                      </children>
@@ -83,7 +94,7 @@
                 </VBox>
                 <VBox alignment="CENTER" layoutX="277.0" layoutY="426.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="13">
                <children>
-                      <Button mnemonicParsing="false" onAction="#onConfirmLoginButton" text="Submit Order" />
+                      <Button mnemonicParsing="false" onAction="#onSubmitOrderButton" text="Submit Order" />
                </children>
                 </VBox>
                 <VBox alignment="CENTER" layoutX="277.0" layoutY="483.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="11" />
@@ -100,14 +111,14 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="43.0" prefWidth="283.0" spacing="5.0">
                      <children>
-                        <VBox alignment="CENTER" prefHeight="52.0" prefWidth="210.0">
+                        <VBox alignment="CENTER" prefHeight="43.0" prefWidth="126.0">
                            <children>
-                              <Label text="Select Product">
+                              <Label text="Brand">
                                  <font>
                                     <Font size="11.0" />
                                  </font>
                               </Label>
-                              <ChoiceBox prefHeight="26.0" prefWidth="195.0" />
+                              <ChoiceBox fx:id="brandDropdown" prefHeight="26.0" prefWidth="103.0" />
                            </children>
                         </VBox>
                      </children>
@@ -117,7 +128,7 @@
                 <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                     <children>
                         <Label text="Customer" />
-                  <ChoiceBox prefHeight="26.0" prefWidth="255.0" />
+                  <ChoiceBox fx:id="customerDropdown" prefHeight="26.0" prefWidth="255.0" />
                     </children>
                 </VBox>
             <VBox alignment="CENTER" prefHeight="43.0" prefWidth="137.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
@@ -127,7 +138,7 @@
                         <Font size="11.0" />
                      </font>
                   </Label>
-                  <ChoiceBox prefHeight="26.0" prefWidth="107.0" />
+                  <ChoiceBox fx:id="classDescDropdown" prefHeight="26.0" prefWidth="107.0" />
                </children>
             </VBox>
             <HBox alignment="CENTER" prefHeight="43.0" prefWidth="283.0" spacing="5.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
@@ -139,7 +150,7 @@
                               <Font size="11.0" />
                            </font>
                         </Label>
-                        <ChoiceBox prefHeight="26.0" prefWidth="38.0" />
+                        <TextField fx:id="quantityField" />
                      </children>
                   </VBox>
                </children>
@@ -152,6 +163,9 @@
                       <TableColumn prefWidth="75.0" text="Quantity" />
                         <TableColumn prefWidth="75.0" />
                     </columns>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
                   </TableView>
                </children>
             </VBox>

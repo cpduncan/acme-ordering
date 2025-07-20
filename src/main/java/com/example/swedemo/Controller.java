@@ -1,5 +1,7 @@
 package com.example.swedemo;
 
+import javafx.geometry.Side;
+import javafx.scene.control.ContextMenu;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,7 +9,10 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -17,10 +22,8 @@ import org.json.simple.parser.ParseException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Controller {
 
@@ -49,7 +52,7 @@ public class Controller {
     }
     @FXML
     protected void onContactUsButton() {
-        // TODO: Contact Us Screen
+        // TODO: Contact Us Screen?
     }
     // LOGIN SCREEN
     @FXML
@@ -82,15 +85,49 @@ public class Controller {
 
     // DASHBOARD SCREEN
     @FXML
-    protected void onNewOrderButton(ActionEvent event) {}
+    protected void onNewOrderButton(ActionEvent event) { switchScene("OrderForm.fxml", event); }
     @FXML
     protected void onNewCustomerButton(ActionEvent event) { switchScene("NewCustomer.fxml", event); }
     @FXML
     protected void onLogOutButton(ActionEvent event) { switchScene("Login.fxml",event); }
 
     // NEW ORDER SCREEN
-
-    //
+    @FXML
+    protected void onAddProductButton(ActionEvent event) {
+        System.out.println("Add Product");
+    }
+    @FXML
+    protected void onSubmitOrderButton(ActionEvent event) {
+        System.out.println("Submit Order");
+    }
+    @FXML
+    TextField productField;
+    @FXML
+    ContextMenu productContextMenu;
+    @FXML
+    protected void onProductFieldFocus(MouseEvent event) {
+        productContextUpdate(productField.getText());
+    }
+    @FXML
+    protected void onProductFieldKeypress(KeyEvent event) {
+        productContextUpdate(productField.getText() + event.getText());
+    }
+    private void productContextUpdate(String text) {
+        List<String> suggestions = Arrays.asList("Apple", "Banana", "Cherry", "Date"); // get suggestions for brand
+        if (!text.isEmpty()) {
+            suggestions = suggestions.stream().filter(item -> item.toLowerCase().startsWith(text.toLowerCase())).collect(Collectors.toList());
+        }
+        productContextMenu.getItems().clear();
+        for (String item : suggestions) {
+            MenuItem menuItem = new MenuItem(item);
+            menuItem.setOnAction(e -> {
+                productField.setText(item);
+                productContextMenu.hide();
+            });
+            productContextMenu.getItems().add(menuItem);
+        }
+        productContextMenu.show(productField, Side.BOTTOM, 0, 0);
+    }
 
     // NEW CUSTOMER SCREEN
     @FXML
