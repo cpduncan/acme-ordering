@@ -39,18 +39,11 @@ public class Controller {
     protected void onContactUsButton() {
         // TODO: Contact Us Screen
     }
-    // Back to STARTUP SCREEN
+    // LOGIN SCREEN
     @FXML
     protected void onLogBackButton(ActionEvent event){
         switchScene("Startup.fxml",event);
     }
-    // Back to Prev SCREEN
-    @FXML
-    protected void onNewCusBackButton(ActionEvent event){
-        switchScene("Login.fxml",event);
-    }
-
-    // LOGIN SCREEN // this is a text change
     @FXML
     TextField emailField;
     @FXML
@@ -67,8 +60,7 @@ public class Controller {
         int code = user.login(email, password);
         switch (code){
             case 0:
-                System.out.println("Switch screen"); // TODO: switch to other scene
-                switchScene("NewCustomer.fxml", event);
+                switchScene("Dashboard.fxml", event);
                 break;
             case 2:
                 System.out.println("Incorrect Password"); // TODO: text appear
@@ -76,6 +68,20 @@ public class Controller {
         }
     }
 
+    // DASHBOARD SCREEN
+    @FXML
+    protected void onNewOrderButton(ActionEvent event) {}
+    @FXML
+    protected void onNewCustomerButton(ActionEvent event) { switchScene("NewCustomer.fxml", event); }
+    @FXML
+    protected void onLogOutButton(ActionEvent event) { switchScene("Login.fxml",event); }
 
+    // NEW ORDER SCREEN
+
+    //
+
+    // NEW CUSTOMER SCREEN
+    @FXML
+    protected void onNewCusBackButton(ActionEvent event){ switchScene("Dashboard.fxml",event); }
 
 }
