@@ -6,6 +6,7 @@ module com.example.swedemo {
     requires org.controlsfx.controls;
 
 
+
     opens com.example.swedemo to javafx.fxml;
     exports com.example.swedemo;
 }
