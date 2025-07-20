@@ -6,9 +6,21 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Random;
 
 public class Controller {
 
@@ -83,5 +95,83 @@ public class Controller {
     // NEW CUSTOMER SCREEN
     @FXML
     protected void onNewCusBackButton(ActionEvent event){ switchScene("Dashboard.fxml",event); }
+    @FXML
+    TextField businessNameField;
+    @FXML
+    TextField streetAddressField;
+    @FXML
+    TextField cityField;
+    @FXML
+    TextField stateField;
+    @FXML
+    TextField beerLisenceField;
+    @FXML
+    TextField deliveryConstraintsField;
+    @FXML
+    TextField pointOfContactField;
+    @FXML
+    TextField phoneNumberField;
+    @FXML
+    CheckBox paymentFormCash;
+    @FXML
+    CheckBox paymentFormEBT;
+    @FXML
+    CheckBox paymentFormFintech;
+    @FXML
+    CheckBox loadingDockCheckbox;
+    @FXML
+    protected void onPaymentForm(ActionEvent event) {
+        CheckBox node = (CheckBox) event.getSource();
+        if (node != paymentFormCash) {
+            paymentFormCash.setIndeterminate(false);
+            paymentFormCash.setSelected(false);
+        }
+        if (node != paymentFormEBT) {
+            paymentFormEBT.setIndeterminate(false);
+            paymentFormEBT.setSelected(false);
+        }
+        if (node != paymentFormFintech) {
+            paymentFormFintech.setIndeterminate(false);
+            paymentFormFintech.setSelected(false);
+        }
+    }
+    @FXML
+    protected void onSubmitNewCustomerButton(ActionEvent event) {
+        try {
+            JSONParser parser = new JSONParser();
+            JSONObject data = null;
+            data = (JSONObject) parser.parse(new FileReader("src/main/resources/fauxACMEDatabase.json"));
+            JSONArray database = (JSONArray) data.get("database");
+            JSONObject customersObj = (JSONObject) database.get(1);
+            JSONArray customers = (JSONArray) customersObj.get("customers");
+            Map customer = new LinkedHashMap(5);
+            customer.put("store", businessNameField.getText());
+            try {
+                Random rand = new Random();
+                String nums = "";
+                for (int i = 0; i < 9; i++) {
+                    nums += rand.nextInt(10) + "";
+                }
+                customer.put("id", businessNameField.getText().replaceAll("\\s", "").substring(0, 5) + "_" + nums);
+                System.out.println(businessNameField.getText().replaceAll("\\s", "").substring(0, 5) + "_" + nums);
+            } catch (IndexOutOfBoundsException e) {
+                throw new RuntimeException(e);
+            }
+            customer.put("address", (streetAddressField.getText() + " " + cityField.getText() + " " + stateField.getText()));
+            customer.put("phoneNumber", phoneNumberField.getText());
+            customer.put("owner", pointOfContactField.getText());
+            customers.add(customer);
+            try (FileWriter file = new FileWriter("src/main/resources/fauxACMEDatabase.json")) {
+                file.write(data.toJSONString());
+                file.flush();
+            }
+            switchScene("Dashboard.fxml",event);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 
 }

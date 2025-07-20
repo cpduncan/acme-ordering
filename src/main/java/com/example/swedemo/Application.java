@@ -25,7 +25,6 @@ public class Application extends javafx.application.Application {
         JSONArray database = (JSONArray) data.get("database");
         JSONObject employeesObj = (JSONObject) database.get(0);
         JSONArray employees = (JSONArray) employeesObj.get("employees");
-        System.out.println("Employees:");
         for (Object empObj : employees) {
             JSONObject emp = (JSONObject) empObj;
             User user = new User((String) emp.get("id"), (String) emp.get("email"), (String) emp.get("passwordHash"));

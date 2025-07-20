@@ -45,7 +45,7 @@
                   <Image url="@../../../low-angle-glass-with-champagne-bottom(1).jpg" />
                </image>
             </ImageView>
-                <Button mnemonicParsing="false" onAction="#onConfirmLoginButton" text="Submit" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
+                <Button mnemonicParsing="false" onAction="#onSubmitNewCustomerButton" text="Submit" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
                 <ImageView fitHeight="70.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                     <image>
                         <Image url="@../../../ACME_DISTRIBUTION_1_-removebg-preview.png" />
@@ -54,31 +54,31 @@
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <children>
                   <Label text="Business Name" />
-                  <TextField fx:id="emailField1" alignment="CENTER" />
+                  <TextField fx:id="businessNameField" alignment="CENTER" />
                </children>
             </VBox>
             <VBox alignment="CENTER" layoutX="277.0" layoutY="104.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <children>
                   <Label text="Street Adress" />
-                  <TextField fx:id="emailField12" alignment="CENTER" />
+                  <TextField fx:id="streetAddressField" alignment="CENTER" />
                </children>
             </VBox>
             <VBox alignment="CENTER" layoutX="277.0" layoutY="150.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <children>
                   <Label text="City" />
-                  <TextField fx:id="emailField121" alignment="CENTER" />
+                  <TextField fx:id="cityField" alignment="CENTER" />
                </children>
             </VBox>
             <VBox alignment="CENTER" layoutX="277.0" layoutY="196.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <children>
                   <Label text="State" />
-                  <TextField fx:id="emailField1211" alignment="CENTER" />
+                  <TextField fx:id="stateField" alignment="CENTER" />
                </children>
             </VBox>
             <VBox alignment="CENTER" layoutX="277.0" layoutY="242.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <children>
                   <Label text="Beer License #" />
-                  <TextField fx:id="emailField12111" alignment="CENTER" />
+                  <TextField fx:id="beerLisenceField" alignment="CENTER" />
                </children>
             </VBox>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="4.0" GridPane.columnIndex="1" GridPane.rowIndex="8">
@@ -86,9 +86,9 @@
                   <Label text="Payment Form" />
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                      <children>
-                        <CheckBox mnemonicParsing="false" text="Cash" />
-                        <CheckBox mnemonicParsing="false" text="EBT" />
-                        <CheckBox layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Fintech" />
+                        <CheckBox fx:id="paymentFormCash" mnemonicParsing="false" onAction="#onPaymentForm" text="Cash" />
+                        <CheckBox fx:id="paymentFormEBT" mnemonicParsing="false" onAction="#onPaymentForm" text="EBT" />
+                        <CheckBox fx:id="paymentFormFintech" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onPaymentForm" text="Fintech" />
                      </children>
                   </HBox>
                </children>
@@ -100,9 +100,8 @@
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
                      <children>
-                        <Label text="Loading Dock: " />
-                        <CheckBox mnemonicParsing="false" text="Yes" />
-                        <CheckBox mnemonicParsing="false" text="No" />
+                        <Label text="Loading Dock?" />
+                        <CheckBox fx:id="loadingDockCheckbox" mnemonicParsing="false" />
                      </children>
                   </HBox>
                </children>
@@ -113,19 +112,19 @@
             <VBox alignment="CENTER" layoutX="277.0" layoutY="288.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="10">
                <children>
                   <Label text="Delivery Constraints" />
-                  <TextField fx:id="emailField121111" alignment="CENTER" />
+                  <TextField fx:id="deliveryConstraintsField" alignment="CENTER" />
                </children>
             </VBox>
             <VBox alignment="CENTER" layoutX="277.0" layoutY="426.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="12">
                <children>
                   <Label text="Phone #" />
-                  <TextField fx:id="emailField1211111" alignment="CENTER" />
+                  <TextField fx:id="phoneNumberField" alignment="CENTER" />
                </children>
             </VBox>
             <VBox alignment="CENTER" layoutX="277.0" layoutY="483.0" prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="11">
                <children>
                   <Label text="Point of Contact" />
-                  <TextField fx:id="emailField12111111" alignment="CENTER" />
+                  <TextField fx:id="pointOfContactField" alignment="CENTER" />
                </children>
             </VBox>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
@@ -137,7 +136,7 @@
                   </Label>
                </children>
             </HBox>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction = "#onNewCusBackButton" text="Back" GridPane.rowIndex="1" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#onNewCusBackButton" text="Back" GridPane.rowIndex="1" />
             </children>
         </GridPane>
     </children>
