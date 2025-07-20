@@ -10,11 +10,15 @@ import org.json.simple.parser.ParseException;
 
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Application extends javafx.application.Application {
 
     public static HashMap<String, User> userList = new HashMap<>();
+    public static String currentUserId = null;
+    public static ArrayList<String> employeeIds = new ArrayList<>();
+    public static ArrayList<String> customerIds = new ArrayList<>();
 
     @Override
     public void start(Stage stage) throws IOException, ParseException {
@@ -29,6 +33,13 @@ public class Application extends javafx.application.Application {
             JSONObject emp = (JSONObject) empObj;
             User user = new User((String) emp.get("id"), (String) emp.get("email"), (String) emp.get("passwordHash"));
             userList.put(user.email, user);
+            employeeIds.add((String) emp.get("id"));
+        }
+        JSONObject customersObj = (JSONObject) database.get(1);
+        JSONArray customers = (JSONArray) customersObj.get("customers");
+        for (Object custObj : customers) {
+            JSONObject cust = (JSONObject) custObj;
+            customerIds.add((String) cust.get("id"));
         }
 
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Startup.fxml"));
