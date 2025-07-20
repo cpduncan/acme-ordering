@@ -150,6 +150,7 @@
                   </TableView>
                </children>
             </VBox>
+            <Button alignment="TOP_CENTER" mnemonicParsing="false" onAction="#onOrderBackButton" text="Back" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
             </children>
         </GridPane>
     </children>

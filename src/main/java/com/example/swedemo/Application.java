@@ -32,6 +32,8 @@ public class Application extends javafx.application.Application {
     }
 
     public static void loadDatabase() {
+        employeeIds = new ArrayList<>();
+        customerIds = new ArrayList<>();
         try {
         JSONParser parser = new JSONParser();
         JSONObject data = null;

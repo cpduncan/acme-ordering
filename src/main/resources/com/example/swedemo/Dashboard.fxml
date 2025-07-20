@@ -9,8 +9,6 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -41,34 +39,15 @@
                   <Image url="@../../../low-angle-glass-with-champagne-bottom(1).jpg" />
                </image>
             </ImageView>
-            <Button mnemonicParsing="false" onAction="#onNewOrderButton" text="New Order" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
             <ImageView fitHeight="325.0" fitWidth="301.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
                <image>
                   <Image url="@../../../ACME_DISTRIBUTION_1_-removebg-preview.png" />
                </image>
             </ImageView>
-            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onLogOutButton" text="Log Out" GridPane.columnIndex="1" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
-            <Button mnemonicParsing="false" onAction="#onNewCustomerButton" text="New Customer" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="BOTTOM" />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="DASHBOARD" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
+            <Text fill="WHITE" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="DASHBOARD" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="TOP">
                <font>
-                  <Font name="Arial Bold" size="60.0" />
+                  <Font name="Arial" size="60.0" />
                </font>
-               <fill>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.7099999785423279" green="0.5626575946807861" blue="0.0142000000923872" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="1.0" green="1.0" blue="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </fill>
                <effect>
                   <DropShadow blurType="ONE_PASS_BOX" height="42.69" radius="22.455" width="49.13">
                      <color>
@@ -77,6 +56,9 @@
                   </DropShadow>
                </effect>
             </Text>
+            <Button mnemonicParsing="false" onAction="#onNewOrderButton" text="New Order" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" GridPane.valignment="BOTTOM" />
+            <Button mnemonicParsing="false" onAction="#onNewCustomerButton" text="New Customer" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="BOTTOM" />
+            <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#onLogOutButton" text="Log Out" GridPane.columnIndex="1" GridPane.rowIndex="8" GridPane.valignment="CENTER" />
          </children>
       </GridPane>
    </children>

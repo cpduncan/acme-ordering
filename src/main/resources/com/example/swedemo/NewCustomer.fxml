@@ -45,7 +45,7 @@
                   <Image url="@../../../low-angle-glass-with-champagne-bottom(1).jpg" />
                </image>
             </ImageView>
-                <Button mnemonicParsing="false" onAction="#onSubmitNewCustomerButton" text="Submit" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
+                <Button mnemonicParsing="false" onAction="#onSubmitNewCustomerButton" text="Submit New Customer" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="13" GridPane.valignment="CENTER" />
                 <ImageView fitHeight="70.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
                     <image>
                         <Image url="@../../../ACME_DISTRIBUTION_1_-removebg-preview.png" />
@@ -136,7 +136,7 @@
                   </Label>
                </children>
             </HBox>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#onNewCusBackButton" text="Back" GridPane.rowIndex="1" />
+            <Button alignment="CENTER" mnemonicParsing="false" onAction="#onNewCusBackButton" text="Back" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
             </children>
         </GridPane>
     </children>
