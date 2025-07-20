@@ -8,6 +8,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -22,10 +23,19 @@ public class Application extends javafx.application.Application {
 
     @Override
     public void start(Stage stage) throws IOException, ParseException {
+        loadDatabase();
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Startup.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
+        stage.setTitle("ACME Distribution Application");
+        stage.setScene(scene);
+        stage.show();
+    }
 
-        // load database
+    public static void loadDatabase() {
+        try {
         JSONParser parser = new JSONParser();
-        JSONObject data = (JSONObject) parser.parse(new FileReader("src/main/resources/fauxACMEDatabase.json"));
+        JSONObject data = null;
+            data = (JSONObject) parser.parse(new FileReader("src/main/resources/fauxACMEDatabase.json"));
         JSONArray database = (JSONArray) data.get("database");
         JSONObject employeesObj = (JSONObject) database.get(0);
         JSONArray employees = (JSONArray) employeesObj.get("employees");
@@ -41,12 +51,11 @@ public class Application extends javafx.application.Application {
             JSONObject cust = (JSONObject) custObj;
             customerIds.add((String) cust.get("id"));
         }
-
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Startup.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        stage.setTitle("ACME Distribution Application");
-        stage.setScene(scene);
-        stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ParseException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public static void main(String[] args) {

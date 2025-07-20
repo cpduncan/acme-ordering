@@ -85,7 +85,10 @@ public class Controller {
 
     // DASHBOARD SCREEN
     @FXML
-    protected void onNewOrderButton(ActionEvent event) { switchScene("OrderForm.fxml", event); }
+    protected void onNewOrderButton(ActionEvent event) {
+        Application.loadDatabase();
+        switchScene("OrderForm.fxml", event);
+    }
     @FXML
     protected void onNewCustomerButton(ActionEvent event) { switchScene("NewCustomer.fxml", event); }
     @FXML
