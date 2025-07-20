@@ -35,6 +35,7 @@ public class User {
             byte[] attemptHash = digest.digest(password.getBytes(StandardCharsets.UTF_8));
             String encodedAttemptHash = Base64.getEncoder().encodeToString(attemptHash);
             if (encodedPasswordHash.equals(encodedAttemptHash)) {
+                Application.currentUserId = userID;
                 return 0;
             } else {
                 return 2;

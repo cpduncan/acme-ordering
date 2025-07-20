@@ -3,6 +3,7 @@ module com.example.swedemo {
     requires javafx.fxml;
     requires java.xml;
     requires json.simple;
+    requires org.controlsfx.controls;
 
 
 
