@@ -1,0 +1,11 @@
+ACME Order Form OUTPUT FILE
+
+Acme Distributing
+Account ID#: BPDGS_254786510
+Delivery Date: 08/09/2025
+Sales Rep ID: SMITHERSJ_57842
+Delivery Rep ID: JhonsonT_22345
+ID     Item Name * Quantity
+067003   GW TANGERINE * 222
+300462   FRONT 9 BOURBN * 9182
+063405   ALO COMFORT * 1

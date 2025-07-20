@@ -119,7 +119,19 @@ public class Controller {
     }
     @FXML
     protected void onSubmitOrderButton(ActionEvent event) {
-
+        String filePath = "src/main/resources/OrderForm.txt";
+        String order = "\nAcme Distributing\nAccount ID#: " + customerIdField.getText() +
+                "\nDelivery Date: 08/09/2025\nSales Rep ID: " + Application.currentUserId +
+                "\nDelivery Rep ID: JhonsonT_22345\nID       Item Name * Quantity\n";
+        for (Product product : products) {
+            order += (product.productId + "   " + product.productName + " * " + product.quantity + "\n");
+        }
+        try (FileWriter fw = new FileWriter(filePath, true)) {
+            fw.write(order);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        switchScene("Dashboard.fxml", event);
     }
     public static class Product {
         private final String productId;
