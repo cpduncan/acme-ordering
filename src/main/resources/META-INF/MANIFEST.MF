@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Main-Class: com.example.swedemo.Application
+Class-Path: javafx-controls-17.0.6.jar javafx-base-17.0.6.jar javafx-con
+ trols-17.0.6-win.jar javafx-graphics-17.0.6-win.jar javafx-fxml-17.0.6.
+ jar hamcrest-core-1.1.jar controlsfx-11.2.2.jar javafx-graphics-17.0.6.
+ jar javafx-fxml-17.0.6-win.jar json-simple-1.1.1.jar junit-4.10.jar jav
+ afx-base-17.0.6-win.jar
+
